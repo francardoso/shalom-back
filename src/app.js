@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const router = require('./router');
 
 mongoose.connect('mongodb://localhost:27017/shalomLocal', {useNewUrlParser: true});
@@ -19,6 +20,8 @@ db.once('open', () =>{
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
+
+app.use(cors());
 
 //use routes
 router(app);

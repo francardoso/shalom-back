@@ -14,7 +14,7 @@ function login(req, res){
         if(ans.error){
             return res.status(500).send(ans);
         }
-        return res.json({ans});
+        return res.json(ans);
     });
 
 };
