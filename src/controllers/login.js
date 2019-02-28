@@ -12,7 +12,7 @@ function login(req, res){
 
     loginModel(context, (ans) =>{
         if(ans.error){
-            return res.status(500).send(ans);
+            return res.json(ans);
         }
         return res.json(ans);
     });
