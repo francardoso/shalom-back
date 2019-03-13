@@ -23,6 +23,7 @@ function login(context, cb){
             if(user.validatePassword(context.password)){
                 cb({
                     msg: 'User founded with RIGHT password',
+                    userId: user.id,
                     error: null
                 });
             }else{

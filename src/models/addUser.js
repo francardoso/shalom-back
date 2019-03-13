@@ -1,6 +1,5 @@
 // Add User model
 const UserSchema = require('../schemas/User');
-const crypto = require('crypto');
 
 function addUser(context, cb){
     const user = new UserSchema();
