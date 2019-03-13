@@ -18,7 +18,9 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "mongoose": "^5.4.12"
+    "express-session": "^1.15.6",
+    "mongoose": "^5.4.12",
+    "session-file-store": "^1.2.0"
   },
   "devDependencies": {}
 }

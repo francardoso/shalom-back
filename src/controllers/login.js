@@ -13,8 +13,10 @@ function login(req, res){
     loginModel(context, (ans) =>{
         if(ans.error){
             return res.json(ans);
+        }else{
+            req.session.userId = ans.userId;
+            return res.json(ans);
         }
-        return res.json(ans);
     });
 
 };
