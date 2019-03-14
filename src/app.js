@@ -6,8 +6,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const router = require('./router');
+const settings = require('../settings/settings');
 
-mongoose.connect('mongodb://localhost:27017/shalomLocal', {useNewUrlParser: true});
+mongoose.connect(settings.DB_PATH, {useNewUrlParser: true});
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -19,7 +20,7 @@ db.once('open', () =>{
 
 app.use(cors({
     credentials:true,
-    origin: ['http://localhost:3000']
+    origin: settings.CORS_ALLOWED_ORIGINS
 }));
 
 // parse application/x-www-form-urlencoded
@@ -30,10 +31,10 @@ app.use(bodyParser.json());
 //Session of user
 app.set('trust proxy', 1); // trust first proxy
 app.use(session({
-    secret: 'L0La An/V3r',
+    secret: settings.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
-    cookie: {secure:false},
+    cookie: {secure:false}, // MAYBE WILL HAVE TO CHANGE ON PRODUCTION
     store: new FileStore
 }));
 
@@ -41,6 +42,6 @@ app.use(session({
 router(app);
 
 // listen on port
-app.listen(3002, ()=>{
+app.listen(settings.PORT, ()=>{
     console.log('Express listening on port 3002');
 });
