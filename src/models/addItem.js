@@ -12,7 +12,7 @@ function addItem(context, cb){
             cb({
                 error: null,
                 msg: 'Item inserted',
-                id: savedItem.id
+                _id: savedItem.id
             });
             return;
         });
