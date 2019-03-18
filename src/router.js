@@ -5,6 +5,7 @@ const loginController = require('./controllers/login');
 const isLoggedController = require('./controllers/isLogged');
 const addItemController = require('./controllers/addItem');
 const getAllItems = require('./controllers/getAllItems');
+const getItem = require('./controllers/getItem');
 function router(app){
     app.get('/', (req, res) => res.send('Shalom app'));
     app.post('/addUser', addUserController);
@@ -12,6 +13,7 @@ function router(app){
     app.get('/isLogged', isLoggedController);
     app.post('/addItem', addItemController);
     app.get('/getAllItems', getAllItems);
+    app.get('/getItem', getItem);
 };
 
 module.exports = router;
