@@ -13,7 +13,7 @@ function router(app){
     app.get('/isLogged', isLoggedController);
     app.post('/addItem', addItemController);
     app.get('/getAllItems', getAllItems);
-    app.get('/getItem', getItem);
+    app.post('/getItem', getItem);
 };
 
 module.exports = router;
