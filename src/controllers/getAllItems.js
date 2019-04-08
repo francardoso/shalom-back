@@ -2,8 +2,11 @@
 const getAllItemsModel = require('../models/getAllItems');
 
 function getAllItems(req, res){
+    const context = {
+        ...req.body
+    }
 
-    getAllItemsModel(null, result =>{
+    getAllItemsModel(context, result =>{
         res.json(result);   
     });
 };

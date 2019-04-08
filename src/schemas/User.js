@@ -5,7 +5,11 @@ const UserSchema = mongoose.Schema({
     name: String,
     login: String,
     hash: String, 
-    salt: String
+    salt: String,
+    active: {
+        default: true,
+        type: Boolean
+    }
 });
 
 UserSchema.methods.hashPassword = function(password){
