@@ -7,6 +7,7 @@ const addItemController = require('./controllers/addItem');
 const getAllItems = require('./controllers/getAllItems');
 const getItem = require('./controllers/getItem');
 const deleteItem = require('./controllers/deleteItem');
+const editItem = require('./controllers/editItem');
 function router(app){
     app.get('/', (req, res) => res.send('Shalom app'));
     app.post('/addUser', addUserController);
@@ -16,6 +17,7 @@ function router(app){
     app.post('/getAllItems', getAllItems);
     app.post('/getItem', getItem);
     app.post('/deleteItem', deleteItem);
+    app.put('/editItem', editItem);
 };
 
 module.exports = router;

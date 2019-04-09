@@ -8,7 +8,12 @@ const cors = require('cors');
 const router = require('./router');
 const settings = require('../settings/settings');
 
-mongoose.connect(settings.DB_PATH, {useNewUrlParser: true});
+mongoose.connect(settings.DB_PATH, 
+    {
+        useNewUrlParser: true,
+        useFindAndModify: false
+    }
+);
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
